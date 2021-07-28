@@ -41,7 +41,7 @@ const Widget: IWidget = {
       styles += key + ": " + defaultStyles[key] + ";";
     }
     this.iframe.setAttribute("style", styles);
-    this.iframe.src = window.location.hostname;
+    this.iframe.src = process.env.SITE_URL || window.location.hostname;
     this.iframe.referrerPolicy = "origin";
     document.body.appendChild(this.iframe);
     this.setupListeners();

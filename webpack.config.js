@@ -17,7 +17,7 @@ const config = {
   },
   output: {
     filename: "[name].js",
-    path: resolve(__dirname, "dist"),
+    path: resolve(__dirname, "build"),
     library: "[name]",
     libraryTarget: "umd",
     libraryExport: "default",
