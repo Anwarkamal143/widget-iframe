@@ -41,7 +41,9 @@ const Widget: IWidget = {
       styles += key + ": " + defaultStyles[key] + ";";
     }
     this.iframe.setAttribute("style", styles);
-    this.iframe.src = process.env.SITE_URL || window.location.hostname;
+    this.iframe.src =
+      "https://610140a119fc710007964c96--brave-elion-deeb22.netlify.app" ||
+      window.location.hostname;
     this.iframe.referrerPolicy = "origin";
     document.body.appendChild(this.iframe);
     this.setupListeners();
