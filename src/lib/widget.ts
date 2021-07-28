@@ -16,6 +16,7 @@ const defaultStyles: any = {
 
 interface IConfig {
   readonly email: string;
+  siteurl?: string
 }
 
 interface IWidget {
@@ -23,7 +24,7 @@ interface IWidget {
   iframe: HTMLIFrameElement | null;
   init: (config: IConfig) => void;
   setupListeners: () => void;
-  createIframe: () => void;
+  createIframe: (siteUrl?:string) => void;
   handleMessage: (event: MessageEvent) => void;
 }
 
@@ -32,9 +33,9 @@ const Widget: IWidget = {
   config: null,
   init: function (config: IConfig) {
     this.config = config;
-    this.createIframe();
+    this.createIframe(config.siteurl || '');
   },
-  createIframe: function () {
+  createIframe: function (siteUrl?: string) {
     this.iframe = document.createElement("iframe");
     let styles = "";
     for (let key in defaultStyles) {
@@ -42,7 +43,7 @@ const Widget: IWidget = {
     }
     this.iframe.setAttribute("style", styles);
     this.iframe.src =
-      "https://610140a119fc710007964c96--brave-elion-deeb22.netlify.app" ||
+      siteUrl ||
       window.location.hostname;
     this.iframe.referrerPolicy = "origin";
     document.body.appendChild(this.iframe);
