@@ -69,7 +69,7 @@ if (isProd) {
 } else {
   config.devServer = {
     port: 9000,
-    contentBase: join(__dirname, 'dist'),
+    contentBase: join(__dirname, 'build'),
     open: true,
     hot: true,
     compress: true,

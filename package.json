@@ -22,7 +22,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve",
     "build": "cross-env NODE_ENV=production webpack",
-    "start": "serve dist",
+    "start": "serve build",
     "build:bundle": "webpack --config webpack.config.js",
     "build:dev": "webpack --config webpack.config.js",
     "test": "react-scripts test",
